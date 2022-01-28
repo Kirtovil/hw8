@@ -116,7 +116,6 @@ public class Main {
         int[] numbers = {1, 5, 4, 8, 5};
         printRevers(numbers);
 
-
     }
 
 }
