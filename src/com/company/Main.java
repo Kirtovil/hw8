@@ -1,6 +1,8 @@
 package com.company;
 
 
+import java.util.Arrays;
+
 public class Main {
 
 
@@ -19,27 +21,25 @@ public class Main {
 //    задание 2
 
 
-    public static void printOS(int OSDives){
-
+    public static void printUpGrateOS(int OSDives, int year){
+        String OS = "";
         if (OSDives == 0) {
-            System.out.println(" для IOS");
+            OS = "IOS";
         } else if (OSDives == 1) {
-            System.out.println(" для Android");
+            OS = "android";
         }
-    }
-
-    public static void printVersionAPP(int year) {
-
         if (year < 2022) {
-            System.out.print("установите облегчённую версию приложения");
+            System.out.println("установите облегчённую версию приложения для " + OS);
         } else {
-            System.out.print("установите полную версию приложения");
+            System.out.println("установите полную версию приложения для " + OS);
         }
     }
+
+
 
 //    задание 3
 
-        public static void printDelivery(int deliveryDistance) {
+        public static  int Delivery(int deliveryDistance) {
         int deliveryDay = 1;
             if (deliveryDistance > 20) {
                 deliveryDay++;
@@ -47,7 +47,7 @@ public class Main {
             if (deliveryDistance > 60 && deliveryDistance <= 100) {
                 deliveryDay++;
             }
-            System.out.println("Потребуется дней для даставки карты - " + deliveryDay);
+        return deliveryDay;
         }
 
 
@@ -72,12 +72,16 @@ public class Main {
 //        задание 5
 
 
-    public static void printRevers(int[] number) {
-        for (int i = number.length - 1; i >= 0; i--) {
-            System.out.print(number[i]);
-
+    public static void reversNumber(int[] number) {
+        int star = 0;
+        int end = number.length - 1;
+        while (star < end) {
+            int helper = number[star];
+            number[star++] = number[end];
+            number[end--] = helper;
         }
     }
+
 
 
     public static void main(String[] args) {
@@ -92,16 +96,15 @@ public class Main {
 
 //        задание 2
 
-        int OSDives = 1;
-        int YearDives = 2021;
-        printVersionAPP(YearDives);
-        printOS(OSDives);
+        int OSDives = 0;
+        int YearDives = 2022;
+        printUpGrateOS(OSDives, YearDives);
 
 
 //    задание 3
 
-        int distance = 95;
-        printDelivery(distance);
+        int distance = 50;
+        System.out.println("для доставки потребуется дней - " + Delivery(distance));
 
 
 //        адание 4
@@ -114,7 +117,8 @@ public class Main {
 
 
         int[] numbers = {1, 5, 4, 8, 5};
-        printRevers(numbers);
+        reversNumber(numbers);
+        System.out.println(Arrays.toString(numbers));
 
     }
 
